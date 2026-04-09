@@ -68,7 +68,10 @@
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(201,168,76,0.45) rgba(255,255,255,0.04);
   }
   .slide.active {
     opacity: 1;
@@ -205,29 +208,44 @@
     background: var(--dark);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 60px;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 34px 42px 72px;
+  }
+  #slide-3 .slide-tag {
+    margin-bottom: 10px;
+  }
+  #slide-3 .slide-title {
+    font-size: clamp(42px, 4.6vw, 86px);
+    line-height: 0.9;
+    margin-bottom: 4px;
+  }
+  #slide-3 .gold-divider {
+    margin-bottom: 18px;
   }
 
   #slide-4 {
     background: var(--dark2);
-    padding: 70px 80px;
+    padding: 70px 80px 110px;
     display: flex;
     flex-direction: column;
   }
 
   #slide-5 {
     background: var(--dark);
-    padding: 70px 80px;
+    padding: 70px 80px 110px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   #slide-6 {
     background: var(--dark2);
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 40px 60px 110px;
   }
   #slide-6 .integration-image {
     width: min(100%, 720px);
@@ -239,16 +257,16 @@
   .purpose-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 16px;
     width: 100%;
     max-width: 1180px;
-    margin-bottom: 28px;
+    margin-bottom: 18px;
   }
   .purpose-card {
     background: linear-gradient(180deg, rgba(201,168,76,0.1), rgba(255,255,255,0.03));
     border: 1px solid rgba(201,168,76,0.18);
-    padding: 26px 24px;
-    min-height: 188px;
+    padding: 18px 18px 20px;
+    min-height: 0;
     opacity: 0;
     transform: translateY(25px);
     transition: all 0.6s ease;
@@ -258,28 +276,28 @@
   .active .purpose-card:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.65s; }
   .purpose-label {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
+    font-size: 20px;
     letter-spacing: 0.12em;
     color: var(--gold);
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
   .purpose-text {
-    font-size: 14px;
-    line-height: 1.75;
+    font-size: 12.5px;
+    line-height: 1.55;
     color: var(--white);
   }
   .pillars-four {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
+    gap: 14px;
     width: 100%;
     max-width: 1180px;
   }
   .pillar-compact {
     background: rgba(255,255,255,0.03);
     border-top: 2px solid var(--gold);
-    padding: 20px 18px 18px;
-    min-height: 176px;
+    padding: 16px 16px 14px;
+    min-height: 0;
     opacity: 0;
     transform: translateY(24px);
     transition: all 0.6s ease;
@@ -290,21 +308,22 @@
   .active .pillar-compact:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.9s; }
   .pillar-compact .idx {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 18px;
+    font-size: 15px;
     color: rgba(201,168,76,0.7);
     letter-spacing: 0.14em;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
   .pillar-compact .name {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     color: var(--white);
-    letter-spacing: 0.08em;
-    margin-bottom: 10px;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+    line-height: 1.05;
   }
   .pillar-compact .desc {
-    font-size: 12.5px;
-    line-height: 1.7;
+    font-size: 11.5px;
+    line-height: 1.45;
     color: var(--gray);
   }
   .about-intro {
@@ -515,25 +534,189 @@
     line-height: 1.7;
   }
 
+  @media (max-width: 1366px) {
+    #slide-3,
+    #slide-4,
+    #slide-5,
+    #slide-6,
+    #slide-7 {
+      padding: 40px 44px 100px;
+    }
+    .slide-title {
+      font-size: clamp(34px, 4.1vw, 58px);
+    }
+    .slide-subtitle {
+      margin-bottom: 28px;
+    }
+    .gold-divider {
+      margin-bottom: 24px;
+    }
+    .purpose-grid,
+    .pillars-four,
+    .integration-layout,
+    .portfolio-layout {
+      margin-top: 18px;
+    }
+    .purpose-card,
+    .pillar-compact,
+    .benefit-card,
+    .step-card,
+    .point-box,
+    .clients-panel,
+    .event-note,
+    .ops-panel {
+      padding: 18px;
+    }
+    .purpose-card,
+    .pillar-compact {
+      min-height: auto;
+    }
+    .events-grid {
+      margin-top: 18px;
+      min-height: 340px;
+    }
+    #nav {
+      bottom: 20px;
+    }
+    #slide-counter {
+      top: 20px;
+      right: 24px;
+    }
+    #logo-watermark {
+      top: 18px;
+      left: 24px;
+    }
+    #nav-prev {
+      left: 10px;
+    }
+    #nav-next {
+      right: 10px;
+    }
+    #slide-3 {
+      padding: 28px 28px 64px;
+    }
+    #slide-3 .slide-title {
+      font-size: clamp(34px, 4vw, 64px);
+    }
+    #slide-3 .purpose-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    #slide-3 .pillars-four {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
   @media (max-width: 1100px) {
+    #slide-3,
+    #slide-4,
+    #slide-5,
+    #slide-6,
+    #slide-7 {
+      padding: 32px 24px 96px;
+    }
     .purpose-grid,
     .pillars-four,
     .hr-benefits-grid,
     .integration-steps {
       grid-template-columns: repeat(2, 1fr);
     }
+    .events-grid {
+      grid-template-columns: repeat(2, 1fr);
+      min-height: auto;
+    }
     .operational-layout,
     .integration-layout,
     .portfolio-layout {
       grid-template-columns: 1fr;
     }
+    #slide-3 .slide-title {
+      font-size: clamp(30px, 6vw, 48px);
+    }
+  }
+
+  @media (max-width: 900px) {
+    html, body {
+      cursor: auto;
+    }
+    .cursor,
+    .cursor-ring {
+      display: none;
+    }
+    #slide-2 {
+      grid-template-columns: 1fr;
+    }
+    #slide-2 .left {
+      padding: 88px 24px 40px;
+    }
+    #slide-2 .left::after {
+      display: none;
+    }
+    #slide-2 .right {
+      min-height: 32vh;
+    }
+    .purpose-grid,
+    .pillars-four,
+    .hr-benefits-grid,
+    .integration-steps,
+    .events-grid {
+      grid-template-columns: 1fr;
+    }
+    #slide-3 {
+      padding: 24px 18px 76px;
+    }
+    #slide-3 .slide-title {
+      font-size: clamp(28px, 11vw, 42px);
+    }
+    .slide-title {
+      font-size: clamp(30px, 8vw, 44px);
+    }
+    .slide-subtitle {
+      margin-bottom: 22px;
+    }
+    .panel-title,
+    .purpose-label,
+    .benefit-card .name,
+    .step-title {
+      font-size: 18px;
+    }
+    .event-item {
+      min-height: 180px;
+    }
+    .event-item .name {
+      bottom: 14px;
+      left: 14px;
+      font-size: 18px;
+    }
+    .nav-arrow {
+      width: 38px;
+      height: 38px;
+    }
+    #slide-counter {
+      font-size: 11px;
+      right: 16px;
+    }
+    #logo-watermark {
+      left: 16px;
+    }
   }
 
   #slide-7 {
     background: var(--dark);
-    padding: 70px 80px;
+    padding: 70px 80px 110px;
     display: flex;
     flex-direction: column;
+  }
+
+  @media (max-width: 1366px) {
+    #slide-7 {
+      padding: 40px 44px 100px;
+    }
+  }
+
+  @media (max-width: 1100px) {
+    #slide-7 {
+      padding: 32px 24px 96px;
+    }
   }
 
   #slide-8 {
@@ -631,6 +814,157 @@
     color: var(--white);
     line-height: 1.6;
     font-weight: 300;
+  }
+
+  @media (max-height: 900px) and (min-width: 901px) {
+    .slide-tag {
+      margin-bottom: 10px;
+      font-size: 9px;
+    }
+    .slide-title {
+      font-size: clamp(30px, 4vw, 52px);
+      margin-bottom: 4px;
+    }
+    .slide-subtitle {
+      font-size: clamp(12px, 1.2vw, 16px);
+      margin-bottom: 20px;
+    }
+    .gold-divider {
+      width: 48px;
+      margin-bottom: 18px;
+    }
+    .timeline {
+      gap: 14px;
+    }
+    .timeline-item {
+      gap: 14px;
+    }
+    .timeline-text,
+    .about-intro,
+    .purpose-text,
+    .ops-bullet,
+    .benefit-card .desc,
+    .policy-note,
+    .step-text,
+    .point-box p,
+    .point-box ul,
+    .clients-list,
+    .event-note p {
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .panel-title,
+    .purpose-label,
+    .benefit-card .name,
+    .step-title {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+    #slide-2 .left {
+      padding: 52px 44px;
+    }
+    #slide-3 {
+      padding: 24px 28px 60px;
+    }
+    #slide-3 .slide-title {
+      font-size: clamp(30px, 3.8vw, 50px);
+      margin-bottom: 2px;
+    }
+    #slide-3 .gold-divider {
+      margin-bottom: 14px;
+    }
+    #slide-4,
+    #slide-5,
+    #slide-6,
+    #slide-7 {
+      padding: 28px 28px 72px;
+    }
+    #slide-4 .slide-title,
+    #slide-5 .slide-title,
+    #slide-6 .slide-title,
+    #slide-7 .slide-title {
+      font-size: clamp(30px, 3.7vw, 50px);
+    }
+    .purpose-grid,
+    .pillars-four,
+    .hr-benefits-grid,
+    .integration-steps {
+      gap: 12px;
+    }
+    .purpose-grid {
+      margin-bottom: 14px;
+    }
+    .purpose-card,
+    .pillar-compact,
+    .benefit-card,
+    .step-card,
+    .point-box,
+    .clients-panel,
+    .event-note,
+    .ops-panel {
+      padding: 14px;
+    }
+    .pillar-compact .idx {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+    .pillar-compact .name {
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+    .pillar-compact .desc {
+      font-size: 11px;
+      line-height: 1.4;
+    }
+    .operational-layout,
+    .integration-layout,
+    .portfolio-layout {
+      gap: 16px;
+      margin-top: 14px;
+    }
+    .hr-benefits-grid {
+      margin-top: 14px;
+    }
+    .policy-note {
+      margin-top: 12px;
+      padding: 12px 14px;
+    }
+    .events-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-top: 14px;
+      min-height: auto;
+    }
+    .event-item {
+      min-height: 150px;
+    }
+    .event-item .name {
+      bottom: 12px;
+      left: 12px;
+      font-size: 16px;
+    }
+    #nav {
+      bottom: 14px;
+    }
+    .nav-arrow {
+      width: 38px;
+      height: 38px;
+    }
+    #nav-prev {
+      left: 6px;
+    }
+    #nav-next {
+      right: 6px;
+    }
+    #slide-counter {
+      top: 16px;
+      right: 18px;
+      font-size: 11px;
+    }
+    #logo-watermark {
+      top: 16px;
+      left: 18px;
+    }
   }
 
   /* Pilares */
@@ -1083,7 +1417,7 @@
   </div>
 
   <!-- SLIDE 6: PROCESSO DE INTEGRACAO -->
-  <div class="slide" id="slide-6" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 60px;">
+  <div class="slide" id="slide-6">
     <div class="slide-tag">Onboarding</div>
     <div class="slide-title">PROCESSO DE<br>INTEGRACAO</div>
     <div class="gold-divider"></div>
